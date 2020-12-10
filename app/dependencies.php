@@ -33,5 +33,14 @@ return function (ContainerBuilder $containerBuilder) {
         return $renderer;
     };
 
+    $container['Database'] = new App\Utilities\Database();
+
+    $container['UserModel'] = DI\factory('App\Factories\UserModelFactory');
+
+    $container['AddUserController'] = DI\factory('App\Factories\AddUserControllerFactory');
+    $container['GetAllUsersController'] = DI\factory('App\Factories\GetAllUsersControllerFactory');
+    $container['EditUserController'] = DI\factory('\App\Factories\EditUserControllerFactory');
+    $container['DeleteUserController'] = DI\factory('App\Factories\DeleteUserControllerFactory');
+
     $containerBuilder->addDefinitions($container);
 };
